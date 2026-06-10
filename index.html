@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pustaka Nusantara</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --bg:#f7f8fa;
+  --bg2:#f0f2f6;
+  --ink:#0d1117;
+  --ink2:#374151;
+  --muted:#8b95a6;
+  --border:#e4e8ef;
+  --border2:#d0d7e3;
+  --blue:#1a56db;
+  --blue-l:#3b82f6;
+  --blue-bg:#eff6ff;
+  --blue-mid:#dbeafe;
+  --red:#dc2626;
+  --red-bg:#fef2f2;
+  --green:#059669;
+  --green-bg:#ecfdf5;
+  --amber:#b45309;
+  --amber-bg:#fffbeb;
+  --r:10px;
+  --shadow-md:0 4px 20px rgba(0,0,0,.1);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);min-height:100vh;overflow-x:hidden}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* NAV */
+nav{
+  background:rgba(255,255,255,.96);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:200;
+  height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
+}
+.nav-brand{
+  font-family:'Lora',serif;font-size:1.2rem;font-weight:700;
+  color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.4rem;
+}
+.nav-brand .dot{color:var(--blue)}
+.nav-links{display:flex;gap:.1rem;list-style:none}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;
+  padding:.4rem .75rem;border-radius:6px;transition:all .15s;
+}
+.nav-links a:hover{color:var(--ink);background:var(--bg2)}
+.nav-cta{
+  background:var(--blue);color:#fff;border:none;padding:.42rem 1rem;
+  border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s;
+}
+.nav-cta:hover{background:var(--blue-l)}
+
+/* HERO */
+.hero{
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:5rem 2.5rem 4.5rem;text-align:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--blue-bg);border:1px solid var(--blue-mid);
+  color:var(--blue);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:.35rem .9rem;border-radius:20px;margin-bottom:1.8rem;
+  animation:fadeUp .6s .1s both;
+}
+.hero h1{
+  font-family:'Lora',serif;font-size:clamp(2.2rem,5vw,3.6rem);
+  color:var(--ink);line-height:1.1;letter-spacing:-.03em;
+  max-width:600px;margin:0 auto .9rem;font-weight:700;
+  animation:fadeUp .6s .2s both;
+}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero p{
+  color:var(--muted);font-size:.93rem;max-width:400px;
+  margin:0 auto 2.2rem;line-height:1.8;
+  animation:fadeUp .6s .3s both;
+}
+.search-box{
+  display:flex;max-width:460px;margin:0 auto;
+  background:var(--white);border:1.5px solid var(--border2);
+  border-radius:10px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(26,86,219,.08);
+  transition:border-color .2s,box-shadow .2s;
+  animation:fadeUp .6s .4s both;
+}
+.search-box:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.search-box input{
+  flex:1;padding:.8rem 1.1rem;border:none;outline:none;
+  font-size:.9rem;font-family:inherit;color:var(--ink);background:transparent;
+}
+.search-box input::placeholder{color:var(--muted)}
+.search-box button{
+  background:var(--blue);color:#fff;border:none;padding:.8rem 1.2rem;
+  cursor:pointer;font-weight:600;font-size:.82rem;font-family:inherit;
+  transition:background .15s;white-space:nowrap;
+}
+.search-box button:hover{background:var(--blue-l)}
+
+/* STATS */
+.stats-bar{
+  border-bottom:1px solid var(--border);background:var(--bg);
+  display:flex;justify-content:center;
+}
+.stat{padding:1rem 2.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:1.6rem;font-weight:700;color:var(--blue);line-height:1;font-family:'Lora',serif}
+.stat-l{font-size:.67rem;color:var(--muted);margin-top:.2rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+/* SECTIONS */
+.container{max-width:1140px;margin:0 auto;padding:0 2.5rem}
+.page-sec{padding:4rem 0}
+.page-sec.alt{background:var(--bg)}
+
+.sec-top{
+  display:flex;align-items:center;gap:1rem;justify-content:space-between;
+  margin-bottom:1.4rem;flex-wrap:wrap;
+}
+.sec-top h2{font-family:'Lora',serif;font-size:1.55rem;font-weight:700;color:var(--ink)}
+.sec-top h2 span{color:var(--blue)}
+
+.tag{
+  display:inline-block;font-size:.65rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:4px;
+}
+.tag-blue{background:var(--blue-bg);color:var(--blue)}
+.tag-red{background:var(--red-bg);color:var(--red)}
+.tag-green{background:var(--green-bg);color:var(--green)}
+
+/* PILL FILTER */
+.pill-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.pill{
+  padding:.34rem .85rem;border-radius:20px;border:1.5px solid var(--border);
+  background:var(--white);font-size:.75rem;font-weight:500;cursor:pointer;
+  color:var(--muted);transition:all .15s;font-family:inherit;
+}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.pill.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* BOOK GRID */
+.books-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:1.2rem;
+}
+.book-card{
+  background:var(--white);border-radius:var(--r);
+  border:1.5px solid var(--border);
+  overflow:hidden;cursor:pointer;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.book-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--border2)}
+.book-cover{height:148px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.book-meta{padding:.9rem .95rem .6rem}
+.book-label{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
+.book-title{font-family:'Lora',serif;font-size:.93rem;font-weight:600;line-height:1.3;color:var(--ink);margin-bottom:.25rem}
+.book-author{font-size:.72rem;color:var(--muted)}
+.book-foot{
+  padding:.55rem .95rem;border-top:1px solid var(--border);display:flex;gap:.45rem;
+}
+.btn-xs{
+  flex:1;padding:.38rem .5rem;border:none;border-radius:6px;
+  font-size:.73rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.btn-xs.pri{background:var(--blue);color:#fff}
+.btn-xs.pri:hover{background:var(--blue-l)}
+.btn-xs.sec{background:var(--bg2);color:var(--ink2)}
+.btn-xs.sec:hover{background:var(--border)}
+
+/* QUOTES */
+.quotes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+.quote-card{
+  background:var(--white);border-radius:var(--r);border:1.5px solid var(--border);
+  padding:1.5rem;transition:transform .2s,box-shadow .2s;position:relative;
+}
+.quote-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.quote-mark{font-family:'Lora',serif;font-size:3.5rem;color:var(--blue-mid);line-height:.6;float:left;margin-right:.4rem;margin-top:.3rem}
+.quote-text{font-size:.87rem;line-height:1.75;color:var(--ink2);font-style:italic;margin-bottom:.85rem;overflow:hidden}
+.quote-by{font-size:.68rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+.quote-copy{
+  margin-top:.75rem;padding:.3rem .7rem;border:1px solid var(--border);
+  border-radius:5px;background:none;font-size:.7rem;cursor:pointer;
+  color:var(--muted);font-family:inherit;transition:all .15s;
+}
+.quote-copy:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* SEARCH RESULTS */
+#search-results{display:none;padding:2.5rem 0;border-top:1px solid var(--border)}
+#search-results.on{display:block}
+.result-meta{font-size:.82rem;color:var(--muted);margin-bottom:1.1rem}
+
+/* MODAL */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(13,17,23,.45);backdrop-filter:blur(4px);
+  z-index:500;align-items:center;justify-content:center;padding:1rem;
+}
+.overlay.on{display:flex}
+.modal{
+  background:var(--white);border-radius:16px;
+  max-width:620px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:var(--shadow-lg);
+  animation:fadeUp .25s both;
+}
+.modal-head{
+  padding:1.5rem 1.75rem 1rem;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+}
+.modal-head-main h3{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;line-height:1.2}
+.modal-head-main .by{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.btn-close{
+  width:30px;height:30px;border-radius:50%;border:none;background:var(--bg2);
+  font-size:1rem;cursor:pointer;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;
+}
+.btn-close:hover{background:var(--border);color:var(--ink)}
+.modal-body{padding:1.4rem 1.75rem}
+.chips{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1rem}
+.chip{font-size:.7rem;background:var(--bg2);color:var(--ink2);padding:.25rem .65rem;border-radius:5px;font-weight:500}
+.modal-desc{font-size:.88rem;line-height:1.75;color:var(--ink2);margin-bottom:1.1rem}
+.modal-excerpt{
+  background:var(--bg);border-left:3px solid var(--blue);
+  padding:.9rem 1.1rem;border-radius:0 8px 8px 0;
+  font-size:.84rem;line-height:1.75;color:var(--ink2);
+}
+.modal-excerpt .lbl{
+  font-size:.65rem;font-weight:700;color:var(--blue);
+  letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.45rem;
+}
+.modal-foot{padding:.75rem 1.75rem 1.4rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.btn-m{
+  padding:.58rem 1.3rem;border-radius:7px;border:none;cursor:pointer;
+  font-size:.82rem;font-weight:600;font-family:inherit;transition:all .15s;
+}
+.btn-m.pri{background:var(--blue);color:#fff}
+.btn-m.pri:hover{background:var(--blue-l)}
+.btn-m.out{background:transparent;border:1.5px solid var(--border);color:var(--ink2)}
+.btn-m.out:hover{background:var(--bg2)}
+.btn-m.fav{background:transparent;border:1.5px solid var(--border);color:var(--muted)}
+.btn-m.fav:hover{background:#fff1f2;border-color:#fca5a5;color:#dc2626}
+.btn-m.faved{background:#fff1f2;border-color:#fca5a5;color:#dc2626}
+
+/* READER */
+#reader-wrap{display:none;position:fixed;inset:0;background:var(--white);z-index:600;overflow-y:auto}
+#reader-wrap.on{display:block}
+.reader-nav{
+  position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:10;
+}
+.reader-nav-title{font-family:'Lora',serif;font-size:.95rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+.reader-controls{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.rbtn{
+  padding:.35rem .75rem;border-radius:6px;border:1.5px solid var(--border);
+  background:var(--white);cursor:pointer;font-size:.75rem;font-weight:500;
+  font-family:inherit;color:var(--ink2);transition:all .15s;
+}
+.rbtn:hover{background:var(--bg2)}
+.rbtn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.reader-body{max-width:660px;margin:0 auto;padding:3.5rem 2rem 6rem}
+.reader-body h2{font-family:'Lora',serif;font-size:2rem;font-weight:700;margin-bottom:.35rem;color:var(--ink)}
+.reader-body .meta{color:var(--muted);font-size:.82rem;margin-bottom:2rem;padding-bottom:1.4rem;border-bottom:1px solid var(--border)}
+.reader-body p{font-size:1.08rem;line-height:1.95;color:var(--ink2);margin-bottom:1.3rem;font-family:'Lora',serif}
+.reader-end{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.82rem}
+
+.r-dark{background:#0d1117!important}
+.r-dark .reader-nav{background:rgba(13,17,23,.94)!important;border-color:#21262d!important}
+.r-dark .reader-nav-title{color:#e6edf3}
+.r-dark .rbtn{background:#161b22;border-color:#30363d;color:#8b949e}
+.r-dark .rbtn:hover{background:#21262d}
+.r-dark .reader-body h2{color:#e6edf3}
+.r-dark .reader-body .meta{color:#6e7681;border-color:#21262d}
+.r-dark .reader-body p{color:#8b949e}
+.r-sepia{background:#faf7f2!important}
+.r-sepia .reader-nav{background:rgba(250,247,242,.94)!important;border-color:#e4d5c0!important}
+.r-sepia .reader-body p{color:#5c3d2e}
+.r-sepia .reader-body h2{color:#2d1a0e}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:2.5px;background:var(--blue);z-index:700;width:0;transition:width .08s}
+
+/* TOAST */
+#toast{
+  position:fixed;bottom:1.8rem;left:50%;transform:translateX(-50%) translateY(60px);
+  background:var(--ink);color:#fff;padding:.65rem 1.3rem;border-radius:8px;
+  font-size:.82rem;font-weight:500;z-index:1000;opacity:0;
+  transition:all .25s;pointer-events:none;white-space:nowrap;
+}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer{
+  background:var(--ink);color:#4b5563;text-align:center;
+  padding:2.5rem 2rem;font-size:.78rem;
+}
+footer strong{color:#e5e7eb}
+
+/* SCROLL FADE — hanya untuk header section, BUKAN grid */
+.fade-sec{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.fade-sec.vis{opacity:1;transform:none}
+
+@media(max-width:640px){
+  nav{padding:0 1.2rem}.nav-links{display:none}
+  .hero{padding:3.5rem 1.2rem 3rem}
+  .books-grid{grid-template-columns:repeat(2,1fr)}
+  .container{padding:0 1.2rem}
+  .stat{padding:.8rem 1rem}.stat-n{font-size:1.3rem}
+  .reader-body{padding:2rem 1.2rem 4rem}
+  .reader-nav{padding:.7rem 1rem}
+  .reader-nav-title{max-width:160px}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+<div id="toast"></div>
+
+<nav>
+  <a class="nav-brand" href="#top">📚 Pustaka<span class="dot">.</span>Nusantara</a>
+  <ul class="nav-links">
+    <li><a href="#pelajaran">Pelajaran</a></li>
+    <li><a href="#cerita">Cerita &amp; Novel</a></li>
+    <li><a href="#bijak">Kata Bijak</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('q').focus()">🔍 Cari Buku</button>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-eyebrow">📖 Perpustakaan Digital Indonesia</div>
+  <h1>Baca. Pelajari.<br><em>Bertumbuh.</em></h1>
+  <p>Koleksi buku pelajaran, cerita, novel, dan kata bijak — gratis untuk semua pelajar Indonesia.</p>
+  <div class="search-box">
+    <input id="q" type="text" placeholder="Cari judul, penulis, atau topik…"
+      oninput="doSearch(this.value)"
+      onkeydown="if(event.key==='Enter')doSearch(this.value)"/>
+    <button onclick="doSearch(document.getElementById('q').value)">Cari</button>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n" id="s1">0</div><div class="stat-l">Total Buku</div></div>
+  <div class="stat"><div class="stat-n" id="s2">0</div><div class="stat-l">Pelajaran</div></div>
+  <div class="stat"><div class="stat-n" id="s3">0</div><div class="stat-l">Cerita &amp; Novel</div></div>
+  <div class="stat"><div class="stat-n" id="s4">0</div><div class="stat-l">Kata Bijak</div></div>
+</div>
+
+<div class="container">
+  <div id="search-results">
+    <p class="result-meta" id="rmeta"></p>
+    <div class="books-grid" id="rgrid"></div>
+  </div>
+</div>
+
+<!-- SECTION PELAJARAN -->
+<section class="page-sec" id="pelajaran">
+  <div class="container">
+    <div class="sec-top fade-sec">
+      <h2>Buku <span>Pelajaran</span></h2>
+      <span class="tag tag-blue">Pendidikan</span>
+    </div>
+    <div class="pill-row fade-sec" id="pill-pelajaran">
+      <button class="pill on" data-sec="pelajaran" data-sub="semua">Semua</button>
+      <button class="pill" data-sec="pelajaran" data-sub="sejarah">📜 Sejarah</button>
+      <button class="pill" data-sec="pelajaran" data-sub="matematika">🔢 Matematika</button>
+      <button class="pill" data-sec="pelajaran" data-sub="sains">🔬 Sains</button>
+    </div>
+    <div class="books-grid" id="grid-pelajaran"></div>
+  </div>
+</section>
+
+<!-- SECTION CERITA -->
+<section class="page-sec alt" id="cerita">
+  <div class="container">
+    <div class="sec-top fade-sec">
+      <h2>Cerita &amp; <span>Novel</span></h2>
+      <span class="tag tag-red">Fiksi &amp; Hiburan</span>
+    </div>
+    <div class="pill-row fade-sec" id="pill-cerita">
+      <button class="pill on" data-sec="cerita" data-sub="semua">Semua</button>
+      <button class="pill" data-sec="cerita" data-sub="cerita">📖 Cerita Pendek</button>
+      <button class="pill" data-sec="cerita" data-sub="novel">📕 Novel</button>
+      <button class="pill" data-sec="cerita" data-sub="dongeng">🧚 Dongeng</button>
+    </div>
+    <div class="books-grid" id="grid-cerita"></div>
+  </div>
+</section>
+
+<!-- SECTION KATA BIJAK -->
+<section class="page-sec" id="bijak">
+  <div class="container">
+    <div class="sec-top fade-sec">
+      <h2>Kata-Kata <span>Bijak</span></h2>
+      <span class="tag tag-green">Inspirasi</span>
+    </div>
+    <div class="quotes-grid" id="qgrid"></div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 <strong>Pustaka Nusantara</strong> — Membangun Bangsa Lewat Literasi<br>
+  <span style="margin-top:.4rem;display:block;opacity:.55">Dibuat dengan ❤️ untuk Indonesia</span>
+</footer>
+
+<!-- MODAL -->
+<div class="overlay" id="mOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-head-main">
+        <h3 id="mT"></h3><p class="by" id="mA"></p>
+      </div>
+      <button class="btn-close" id="btnCloseModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="chips" id="mC"></div>
+      <p class="modal-desc" id="mD"></p>
+      <div class="modal-excerpt" id="mE"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-m pri" id="mReadBtn">📖 Baca Sekarang</button>
+      <button class="btn-m fav" id="mFavBtn">🤍 Simpan</button>
+      <button class="btn-m out" id="btnModalClose2">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- READER -->
+<div id="reader-wrap">
+  <div class="reader-nav">
+    <span class="reader-nav-title" id="rtitle"></span>
+    <div class="reader-controls">
+      <button class="rbtn" id="btn-fz-minus">A−</button>
+      <button class="rbtn" id="btn-fz-plus">A+</button>
+      <button class="rbtn on" id="rb-light">☀️</button>
+      <button class="rbtn" id="rb-sepia">🌿</button>
+      <button class="rbtn" id="rb-dark">🌙</button>
+      <button class="rbtn" id="btn-close-reader" style="margin-left:.3rem">✕ Tutup</button>
+    </div>
+  </div>
+  <div class="reader-body" id="rbody"></div>
+</div>
+
+<script>
+/* ─── SFX ─────────────────────────────── */
+let AC = null;
+function getAC(){if(!AC)AC=new(window.AudioContext||window.webkitAudioContext)();return AC;}
+function sfx(type){
+  try{
+    const ac=getAC();
+    const t=ac.currentTime;
+    const note=(f,when,dur,vol=.08,wave='sine')=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.type=wave;o.connect(g);g.connect(ac.destination);
+      o.frequency.value=f;
+      g.gain.setValueAtTime(vol,t+when);
+      g.gain.exponentialRampToValueAtTime(.001,t+when+dur);
+      o.start(t+when);o.stop(t+when+dur);
+    };
+    if(type==='click')  note(480,.0,.07,.06,'square');
+    else if(type==='open') {note(440,.0,.07);note(660,.07,.09);}
+    else if(type==='close'){note(440,.0,.07);note(330,.07,.09);}
+    else if(type==='search'){note(440,.0,.07);note(550,.08,.07);note(660,.16,.09);}
+    else if(type==='fav')  {note(523,.0,.1);note(659,.09,.1);note(784,.18,.12);}
+    else if(type==='copy') note(880,.0,.08,.06);
+  }catch(e){}
+}
+
+/* ─── TOAST ───────────────────────────── */
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('on');
+  clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2400);
+}
+
+/* ─── DATA ────────────────────────────── */
+const BOOKS=[
+  {id:1,sec:'pelajaran',sub:'sejarah',title:'Sejarah Indonesia Kuno',author:'Prof. Soekarno Hatta',icon:'🏛️',bg:'#fef9c3',yr:'2023',pg:'340 hlm',lvl:'SMP–SMA',
+   desc:'Perjalanan Nusantara dari masa prasejarah hingga kejayaan Majapahit dan Sriwijaya. Dilengkapi peta, garis waktu, dan gambar artefak.',
+   content:[
+    'Nusantara adalah nama lama kepulauan yang kini kita kenal sebagai Indonesia. Ribuan tahun sebelum nama itu ada, manusia pertama telah menginjakkan kaki di tanah yang subur ini, membawa serta budaya dan peradaban yang kelak mewarnai sejarah dunia.',
+    'Kerajaan Sriwijaya, berpusat di Palembang sekitar abad ke-7 Masehi, merupakan salah satu kerajaan maritim terbesar di Asia Tenggara. Di bawah naungannya, perdagangan rempah-rempah berkembang pesat, menarik pedagang dari India, China, hingga Arab.',
+    'Kerajaan Majapahit berdiri sekitar 1293 M dan mencapai puncak kejayaannya di bawah Raja Hayam Wuruk. Gajah Mada mengucapkan Sumpah Palapa: tidak akan menikmati kenikmatan sebelum Nusantara bersatu di bawah satu panji.',
+    'Armada laut Majapahit berlayar hingga ke Semenanjung Malaka, Kalimantan, Sulawesi, dan sebagian Papua. Majapahit menjadi simbol kejayaan Nusantara yang tak terlupakan.',
+    'Keruntuhan Majapahit pada abad ke-15 membuka babak baru. Kerajaan-kerajaan Islam mulai tumbuh, dari Demak di Jawa hingga Ternate dan Tidore di Maluku. Perdagangan rempah-rempah yang menggiurkan pun menarik perhatian bangsa-bangsa Eropa.',
+   ]},
+  {id:2,sec:'pelajaran',sub:'sejarah',title:'Proklamasi Kemerdekaan',author:'Dr. Merdeka Bangsa',icon:'🇮🇩',bg:'#fee2e2',yr:'2022',pg:'280 hlm',lvl:'SD–SMP',
+   desc:'Dari penjajahan Belanda hingga proklamasi 17 Agustus 1945. Kisah perjuangan para pahlawan demi kemerdekaan bangsa.',
+   content:[
+    'Selama lebih dari tiga ratus tahun, Nusantara berada di bawah cengkeraman penjajahan Belanda. Tanah yang kaya rempah-rempah ini diperas habis-habisan, sementara rakyatnya hidup dalam kemiskinan dan ketidakadilan.',
+    'Kebangkitan nasional mulai bersemi pada awal abad ke-20. Budi Utomo berdiri pada 1908, menjadi organisasi pergerakan nasional pertama, disusul Sarekat Islam dan PNI pimpinan Soekarno.',
+    'Kedatangan tentara Jepang pada Maret 1942 mengakhiri pendudukan Belanda. Namun penjajahan berganti tangan, bukan berakhir. Jepang mewajibkan kerja paksa romusha yang menelan banyak korban jiwa.',
+    'Tanggal 17 Agustus 1945 pukul 10.00 WIB, Soekarno membacakan teks proklamasi di Jalan Pegangsaan Timur No. 56, Jakarta. Sang Merah Putih pertama kali dikibarkan oleh bangsa yang merdeka.',
+    'Agresi Militer Belanda I dan II mencoba merampas kembali kemerdekaan. Namun rakyat Indonesia bersatu bergerilya dan berdiplomasi — hingga kedaulatan penuh diakui dunia pada 27 Desember 1949.',
+   ]},
+  {id:3,sec:'pelajaran',sub:'sejarah',title:'Perang Dunia & Asia',author:'Sejarawan Nugroho',icon:'⚔️',bg:'#e0f2fe',yr:'2021',pg:'410 hlm',lvl:'SMA',
+   desc:'Dampak Perang Dunia I dan II terhadap Asia Tenggara dan Indonesia, termasuk masa pendudukan Jepang dan kebangkitan nasionalisme.',
+   content:[
+    'Perang Dunia I (1914–1918) tidak secara langsung mengguncang Asia Tenggara, namun dampaknya terasa jauh. Melemahnya kekuatan kolonial Eropa membuka celah bagi munculnya kesadaran nasionalisme di penjuru dunia terjajah.',
+    'Perang Dunia II membawa perubahan dramatis ke Asia. Jepang, dengan ambisi membangun "Lingkungan Kemakmuran Bersama Asia Timur Raya", menyerbu negara-negara Asia yang dikuasai Eropa satu per satu.',
+    'Kedatangan tentara Jepang ke Indonesia pada Maret 1942 mengakhiri pendudukan Belanda tiga setengah abad. Dengan semboyan "Asia untuk Bangsa Asia", Jepang justru membuka kesadaran nasionalisme baru.',
+    'Di balik propaganda itu, pendudukan Jepang membawa penderitaan luar biasa. Sistem romusha memaksa jutaan rakyat Indonesia bekerja tanpa upah di bawah kondisi sangat keras.',
+    'Bom atom di Hiroshima dan Nagasaki Agustus 1945 memaksa Jepang menyerah. Kekosongan kekuasaan ini dimanfaatkan Soekarno dan Hatta untuk memproklamasikan kemerdekaan Indonesia.',
+   ]},
+  {id:13,sec:'pelajaran',sub:'sejarah',title:'Kerajaan Nusantara',author:'Dr. Raden Prasetyo',icon:'👑',bg:'#fce7f3',yr:'2020',pg:'360 hlm',lvl:'SMP–SMA',
+   desc:'Kisah kerajaan-kerajaan besar Nusantara: Kutai, Tarumanagara, Mataram Kuno, Singasari, hingga Majapahit.',
+   content:[
+    'Kerajaan Kutai di Kalimantan Timur adalah kerajaan Hindu tertua di Nusantara, berdiri sekitar abad ke-4 Masehi. Prasasti Yupa di tepi Sungai Mahakam menjadi bukti pertama peradaban bertulis di Indonesia.',
+    'Tarumanagara di Jawa Barat berdiri abad ke-5 dan jaya di bawah Raja Purnawarman. Ia membangun saluran irigasi sepanjang 12 km untuk mengendalikan banjir dan mengairi sawah rakyatnya.',
+    'Mataram Kuno membangun Candi Borobudur dan Prambanan. Borobudur, dibangun sekitar abad ke-8, adalah mandala Buddha terbesar di dunia — sebuah gunung buatan manusia yang menggambarkan perjalanan menuju pencerahan.',
+    'Kerajaan Singasari berdiri setelah Ken Arok mengalahkan Kerajaan Kediri. Raja Kertanagara dikenal sebagai raja pertama yang bercita-cita menyatukan Nusantara dengan mengirim ekspedisi Pamalayu ke Sumatera.',
+    'Dari reruntuhan Singasari, lahirlah Majapahit. Raden Wijaya mendirikannya pada 1293 setelah mengusir pasukan Mongol yang dikirim Kubilai Khan — sebuah ironi sejarah yang memulai era keemasan Nusantara.',
+   ]},
+  {id:14,sec:'pelajaran',sub:'sejarah',title:'Reformasi Indonesia 1998',author:'Jurnalis Sejarah',icon:'📰',bg:'#ecfdf5',yr:'2023',pg:'290 hlm',lvl:'SMA–Kuliah',
+   desc:'Jatuhnya Orde Baru dan lahirnya Era Reformasi. Gerakan mahasiswa, krisis moneter, dan kelahiran demokrasi Indonesia modern.',
+   content:[
+    'Krisis moneter 1997 menghantam Indonesia seperti badai. Rupiah yang semula berkisar 2.400 per dolar merosot tajam hingga lebih dari 16.000. Harga-harga melonjak dan PHK massal terjadi di mana-mana.',
+    'Mahasiswa dari berbagai perguruan tinggi turun ke jalan, mendirikan tenda di depan kampus dengan poster "Reformasi Total". Tuntutan mereka tegas: turunkan Soeharto yang telah berkuasa 32 tahun.',
+    'Tragedi Trisakti pada 12 Mei 1998 menewaskan empat mahasiswa. Kematian mereka memicu gelombang amarah dan kerusuhan besar di Jakarta dan kota-kota lain di Indonesia.',
+    'Pada 21 Mei 1998, Soeharto menyatakan mengundurkan diri di Istana Merdeka. Dengan suara bergetar, ia mengakhiri lebih dari tiga dasawarsa kekuasaan. Indonesia memasuki babak baru sejarahnya.',
+    'Era Reformasi membawa pemilu bebas dan jujur, desentralisasi kekuasaan, kebebasan pers, dan lahirnya partai-partai baru. Indonesia menjadi salah satu negara demokratis terbesar di dunia.',
+   ]},
+  {id:4,sec:'pelajaran',sub:'matematika',title:'Aljabar Dasar',author:'Dra. Sari Dewi',icon:'➕',bg:'#dbeafe',yr:'2024',pg:'220 hlm',lvl:'SMP',
+   desc:'Pengantar aljabar yang menyenangkan: variabel, persamaan linear, sistem persamaan, dan grafik fungsi dengan ratusan soal latihan.',
+   content:[
+    'Aljabar adalah bahasa matematika. Jika apel = x, maka 3x + 5 = 20 berarti kita punya 3 apel plus 5, hasilnya 20. Maka x = 5. Dari sinilah perjalanan kita menjelajahi dunia matematika dimulai.',
+    'Persamaan linear bentuk umumnya ax + b = c. Cara menyelesaikannya: isolasi variabel x. Contoh: 2x + 6 = 14 → 2x = 8 → x = 4. Verifikasi: 2(4) + 6 = 14 ✓',
+    'Sistem persamaan linear dua variabel. Metode substitusi: selesaikan satu variabel dari persamaan pertama, substitusikan ke persamaan kedua. Metode eliminasi: jumlahkan atau kurangkan kedua persamaan.',
+    'Fungsi menggambarkan hubungan input-output. Notasi f(x) dibaca "f dari x". Fungsi linear f(x) = 2x + 1 menghasilkan garis lurus jika digambarkan pada koordinat Kartesius.',
+    'Latihan: Seutas tali dipotong dua bagian, bagian pertama 15 cm lebih panjang dari bagian kedua, total 85 cm. Misalkan bagian kedua = x: x + (x+15) = 85 → 2x = 70 → x = 35 cm, bagian pertama = 50 cm.',
+   ]},
+  {id:5,sec:'pelajaran',sub:'matematika',title:'Kalkulus Pemula',author:'Prof. Ahmad Fauzi',icon:'∫',bg:'#f3e8ff',yr:'2023',pg:'390 hlm',lvl:'SMA–Kuliah',
+   desc:'Limit, turunan, dan integral dijelaskan secara intuitif dengan visualisasi dan contoh nyata dari fisika dan ekonomi.',
+   content:[
+    'Bayangkan sebuah mobil bergerak. Kecepatannya pada setiap saat adalah turunan dari posisinya terhadap waktu. Itulah hakikat kalkulus diferensial — mengukur laju perubahan, dikembangkan Newton dan Leibniz abad ke-17.',
+    'Limit adalah konsep fondamental kalkulus. lim(x→a) f(x) menanyakan: nilai apa yang didekati f(x) ketika x mendekati a? Contoh: lim(x→2) x² = 4.',
+    'Turunan: f\'(x) = lim(h→0) [f(x+h)−f(x)]/h. Aturan dasar: turunan xⁿ adalah nxⁿ⁻¹. Turunan x³ adalah 3x². Turunan konstanta adalah 0. Turunan sin(x) adalah cos(x).',
+    'Integral adalah kebalikan turunan. ∫2x dx = x² + C. Secara geometris, integral tentu ∫[a,b] f(x) dx mengukur luas di bawah kurva antara x=a dan x=b.',
+    'Teorema dasar kalkulus: jika F adalah anti-turunan f, maka ∫[a,b] f(x) dx = F(b)−F(a). Hubungan indah ini adalah salah satu penemuan terbesar dalam sejarah matematika.',
+   ]},
+  {id:6,sec:'pelajaran',sub:'matematika',title:'Geometri & Trigonometri',author:'Bapak Yusuf M.Pd.',icon:'📐',bg:'#d1fae5',yr:'2022',pg:'300 hlm',lvl:'SMP–SMA',
+   desc:'Bangun datar, bangun ruang, dan fungsi trigonometri lengkap dengan pembuktian dan aplikasi dalam kehidupan nyata.',
+   content:[
+    'Teorema Pythagoras: a² + b² = c², di mana c adalah sisi miring segitiga siku-siku. Dari rumus ini lahirlah trigonometri, navigasi laut, desain jembatan, bahkan grafik komputer modern.',
+    'Fungsi trigonometri: sin θ = sisi depan/sisi miring, cos θ = sisi samping/sisi miring, tan θ = sisi depan/sisi samping. Ingat: SOH-CAH-TOA.',
+    'Sudut istimewa: sin 30°=½, cos 30°=√3/2, sin 45°=cos 45°=√2/2, sin 60°=√3/2. Identitas penting: sin²θ + cos²θ = 1 untuk semua θ.',
+    'Aplikasi: surveyor mengukur menara dari jarak 50 m, sudut elevasi 60°. Tinggi = 50 × tan 60° = 50√3 ≈ 86,6 m. Trigonometri dipakai tiap hari oleh insinyur, arsitek, dan navigator.',
+    'Volume bangun ruang: kubus=s³, balok=p×l×t, tabung=πr²t, bola=(4/3)πr³, kerucut=(1/3)πr²t. Luas permukaan bola=4πr².',
+   ]},
+  {id:15,sec:'pelajaran',sub:'matematika',title:'Statistika & Peluang',author:'Dr. Fitri Handayani',icon:'📊',bg:'#fef3c7',yr:'2024',pg:'250 hlm',lvl:'SMA',
+   desc:'Pengumpulan data, distribusi, uji hipotesis, peluang klasik dan kondisional — lengkap dengan contoh kasus nyata.',
+   content:[
+    'Statistika adalah ilmu mengumpulkan, menganalisis, dan menginterpretasi data. Di era banjir informasi ini, kemampuan membaca statistik adalah literasi wajib — sama pentingnya dengan membaca dan menulis.',
+    'Ukuran pemusatan: mean = jumlah data/banyak data; median = nilai tengah jika diurutkan; modus = nilai paling sering muncul. Ketiganya memberi gambaran berbeda tentang "pusat" sebuah kumpulan data.',
+    'Peluang adalah ukuran kemungkinan suatu kejadian terjadi, bernilai antara 0 dan 1. Peluang melempar koin mendapat kepala = ½. Peluang mengambil kartu As dari 52 kartu = 4/52 = 1/13.',
+    'Teorema Bayes memungkinkan kita memperbarui probabilitas berdasarkan bukti baru. Digunakan dalam kedokteran, filter spam email, hingga kecerdasan buatan modern.',
+    'Distribusi normal (kurva lonceng) menggambarkan banyak fenomena: tinggi badan, nilai ujian, pengukuran error. Sekitar 68% data jatuh dalam 1 standar deviasi dari mean, 95% dalam 2 standar deviasi.',
+   ]},
+  {id:16,sec:'pelajaran',sub:'matematika',title:'Logika & Pembuktian',author:'Prof. Budi Santoso',icon:'🧮',bg:'#e0f2fe',yr:'2021',pg:'180 hlm',lvl:'SMA–Kuliah',
+   desc:'Logika proposisi, kuantor, bukti langsung dan tak langsung, induksi matematika. Fondasi berpikir matematis.',
+   content:[
+    'Logika adalah tulang punggung matematika. Proposisi adalah pernyataan yang bisa dinilai benar atau salah. "Jakarta adalah ibu kota Indonesia" adalah proposisi benar. "Ambil kursi itu!" bukan proposisi.',
+    'Operator logika: AND (p∧q benar jika kedua p dan q benar), OR (p∨q benar jika minimal satu benar), NOT (¬p kebalikan p), Implikasi (p→q: jika p maka q).',
+    'Bukti langsung: asumsikan premis benar, tunjukkan kesimpulan pasti benar. Contoh: jumlah dua bilangan genap pasti genap. Misalkan a=2m dan b=2n, maka a+b=2(m+n). ∎',
+    'Bukti kontradiksi: asumsikan kesimpulan salah, tunjukkan ini mengarah pada kontradiksi. Bukti bahwa √2 irasional menggunakan metode ini — salah satu bukti paling elegan dalam matematika.',
+    'Induksi matematika: (1) Basis — buktikan benar untuk n=1. (2) Induktif — asumsikan benar untuk n=k, buktikan benar untuk n=k+1. Maka terbukti untuk semua bilangan asli.',
+   ]},
+  {id:17,sec:'pelajaran',sub:'sains',title:'Fisika Dasar',author:'Ibu Nadia Putri',icon:'⚛️',bg:'#f0fdf4',yr:'2023',pg:'320 hlm',lvl:'SMA',
+   desc:'Mekanika Newton, gelombang, optik, termodinamika, dan listrik dasar. Penjelasan intuitif dengan eksperimen sederhana.',
+   content:[
+    'Hukum Newton pertama: benda diam tetap diam, benda bergerak tetap bergerak lurus beraturan, kecuali ada gaya luar. Ini prinsip inersia — sifat bawaan materi mempertahankan keadaannya.',
+    'Hukum Newton kedua: F = ma. Gaya = massa × percepatan. Benda bermassa 5 kg diberi gaya 20 N akan berakselerasi 4 m/s².',
+    'Hukum kekekalan energi: energi tidak dapat diciptakan atau dimusnahkan, hanya berubah bentuk. Energi potensial batu berubah jadi energi kinetik saat jatuh, lalu panas dan bunyi saat menghantam tanah.',
+    'Gelombang adalah gangguan yang merambat membawa energi tanpa memindahkan materi. Cahaya merambat ~300.000 km/s di ruang hampa. Bunyi merambat 343 m/s di udara dan butuh medium.',
+    'Hukum Ohm: V = IR. Tegangan = Arus × Hambatan. Ini fondasi seluruh elektronika modern — dari bola lampu rumah tangga hingga chip komputer bernilai triliunan dolar.',
+   ]},
+  {id:18,sec:'pelajaran',sub:'sains',title:'Biologi Sel & Genetika',author:'Dr. Maya Sari',icon:'🧬',bg:'#fdf4ff',yr:'2022',pg:'280 hlm',lvl:'SMA–Kuliah',
+   desc:'Struktur sel, mitosis-meiosis, hukum Mendel, DNA, RNA, dan rekayasa genetika. Ilmu yang mengubah dunia medis.',
+   content:[
+    'Sel adalah unit terkecil kehidupan. Setiap sel mengandung instruksi lengkap untuk membangun seluruh tubuh, tersimpan dalam DNA sepanjang 2 meter yang muat dalam inti sel berdiameter 0,006 mm.',
+    'DNA berbentuk tangga berpilin ganda. Empat basa nitrogen: adenin (A), timin (T), guanin (G), sitosin (C). A selalu berpasangan T, G selalu C. Urutan basa ini mengkodekan seluruh informasi kehidupan.',
+    'Hukum Mendel pertama: setiap individu memiliki dua alel untuk setiap sifat, hanya satu diturunkan ke sel kelamin. Ini menjelaskan mengapa anak bisa memiliki sifat yang tidak tampak pada orang tua.',
+    'Central dogma biologi: DNA → RNA (transkripsi di inti sel) → Protein (translasi di ribosom). Satu gen mengkodekan satu protein, dan protein adalah "mesin" yang menjalankan semua fungsi tubuh.',
+    'Rekayasa genetika memungkinkan kita mengubah DNA organisme. Bakteri yang direkayasa kini memproduksi insulin manusia. Terapi gen membuka harapan penyembuhan penyakit keturunan.',
+   ]},
+  {id:7,sec:'cerita',sub:'dongeng',title:'Si Kancil yang Cerdik',author:'Dongeng Nusantara',icon:'🦊',bg:'#fef3c7',yr:'2020',pg:'80 hlm',lvl:'Anak-anak',
+   desc:'Kisah klasik si kancil yang menggunakan kecerdikannya menghadapi musuh yang lebih besar darinya.',
+   content:[
+    'Di tepi sungai yang jernih, di bawah rimbun pohon pisang, tinggallah seekor kancil bernama Kantil. Tubuhnya kecil, bulunya cokelat mengkilap, matanya hitam berbinar cerdas. Kantil dikenal di seluruh hutan sebagai binatang paling cerdik.',
+    '"Kancil!" suara menggelegar dari balik semak. Buaya raksasa muncul membuka mulut penuh gigi tajam. "Kau melintas di sungaiku! Hari ini aku akan memakanmu!"',
+    'Kantil tersenyum tenang. "Buaya yang terhormat, aku datang atas perintah Raja Hutan. Beliau ingin menghitung jumlah buaya di sungai ini untuk memberikan hadiah!"',
+    '"Hadiah?" Buaya tergoda. "Makanan berlimpah untuk setiap buaya," kata Kantil. "Tapi harus dihitung dulu. Berbarislah dari tepi ke tepi sungai!" Para buaya pun berjejer rapi.',
+    'Kantil melompat dari punggung satu buaya ke buaya lain sambil berhitung. Saat sampai di tepi seberang, ia berbalik, "Terima kasih sudah membantuku menyeberang, para buaya yang mudah dibohongi!" Kantil berlari tertawa riang.',
+   ]},
+  {id:8,sec:'cerita',sub:'dongeng',title:'Timun Mas & Raksasa',author:'Tradisi Jawa',icon:'🌿',bg:'#d1fae5',yr:'2019',pg:'65 hlm',lvl:'Anak-anak',
+   desc:'Gadis kecil Timun Mas menghadapi raksasa jahat dengan senjata ajaib. Dongeng Jawa yang penuh keberanian.',
+   content:[
+    'Dahulu kala di sebuah desa damai, hiduplah janda tua bernama Mbok Srini yang sangat ingin punya anak. Hingga raksasa hijau Buta Ijo datang dengan tawaran: "Aku bisa memberikanmu anak, tapi ketika ia enam belas tahun, serahkan padaku."',
+    'Dari biji mentimun itu lahirlah Timun Mas — gadis ceria, baik hati, dan rajin. Namun bayangan janji pahit itu terus menghantui Mbok Srini.',
+    'Menjelang hari yang ditakutkan, Mbok Srini memeluk Timun Mas erat. "Ambillah empat bungkusan ini. Jika raksasa mengejarmu, lempar berurutan." Timun Mas mengangguk gagah, lalu berlari ke dalam hutan.',
+    'Buta Ijo mengejar. Timun Mas melempar bungkusan pertama: biji timun jadi hutan lebat. Kedua: jarum jadi bambu berduri. Ketiga: garam jadi lautan asin.',
+    'Bungkusan keempat: terasi menciptakan lumpur mendidih. Buta Ijo tenggelam dan lenyap. Timun Mas berlari pulang ke pelukan ibunya yang menangis bahagia.',
+   ]},
+  {id:19,sec:'cerita',sub:'dongeng',title:'Malin Kundang',author:'Legenda Minangkabau',icon:'⛵',bg:'#e0f2fe',yr:'2018',pg:'70 hlm',lvl:'Anak-anak',
+   desc:'Kisah anak durhaka yang dikutuk menjadi batu. Legenda Sumatera Barat yang mengajarkan pentingnya berbakti kepada orang tua.',
+   content:[
+    'Di kampung kecil di tepi pantai Sumatera Barat, hiduplah Malin Kundang bersama ibunya yang tua renta. Mereka hidup miskin, mengandalkan tangkapan ikan dan kebun kecil di belakang rumah.',
+    'Suatu hari sebuah kapal besar berlabuh. Malin memohon izin merantau. "Pergilah, Nak. Jadilah orang berguna. Jangan lupakan ibumu," bisik sang ibu dengan air mata mengalir.',
+    'Bertahun-tahun berlalu tanpa kabar. Lalu sebuah kapal mewah berlabuh di pelabuhan kampung itu. Turun seorang saudagar kaya dengan pakaian gemerlapan dan istri cantik di sampingnya.',
+    'Sang ibu berlari tersaruk-saruk. "Malin! Anakku!" Namun Malin berpaling dingin. "Perempuan tua ini bukan ibuku. Ibuku sudah lama mati."',
+    'Sang ibu pun berlutut mendongak ke langit. "Ya Allah, jika ini memang anakku, jadikan ia batu." Badai datang mendadak, kapal digulung ombak. Di tepi pantai orang-orang menemukan batu karang berbentuk manusia menengadah — seperti memohon ampun yang tak pernah terucap.',
+   ]},
+  {id:9,sec:'cerita',sub:'cerita',title:'Petualangan di Hutan Borneo',author:'Rina Cahyani',icon:'🌴',bg:'#ecfdf5',yr:'2023',pg:'120 hlm',lvl:'Remaja',
+   desc:'Empat remaja terjebak di hutan Kalimantan dan harus bertahan hidup sambil mengungkap misteri pohon sakral.',
+   content:[
+    'GPS mati. Sinyal hilang. Bagas menatap kompas yang jarumnya berputar tanpa arah. "Kita tersesat," ucapnya pelan. Tara menggigit bibir. Dito menelan ludah. Di kejauhan, burung hantu meraung tiga kali.',
+    '"Tiga raung burung hantu berarti ada yang mengawasi kita," bisik Tara. "Mitos," bantah Dito, meski tangannya gemetar menyalakan senter. Cahaya menembus gelap, menyinari pohon-pohon raksasa seperti raksasa tidur.',
+    'Mereka menemukan pohon belian berusia ratusan tahun. Di batangnya terukir simbol-simbol aneh. Rara mendekatinya dengan mata berbinar. "Ini tulisan Dayak kuno. Artinya..." Wajahnya memucat.',
+    '"Artinya apa?" desak Bagas. "Di sini bersemayam roh para leluhur. Siapa mengganggu, tak akan kembali." Hening sejenak. Lalu gemerisik semak dari semua arah.',
+    'Dari balik pohon muncul seorang kakek tua dengan tato Dayak memenuhi lengannya. Ia tersenyum. "Kalian tersesat?" Tiga jam kemudian, dipandu sang kakek kepala adat, keempat remaja itu keluar dari hutan dengan cerita yang akan mereka kenang seumur hidup.',
+   ]},
+  {id:20,sec:'cerita',sub:'cerita',title:'Surat Terakhir untuk Ayah',author:'Putri Wulandari',icon:'✉️',bg:'#fce7f3',yr:'2022',pg:'95 hlm',lvl:'Remaja',
+   desc:'Kisah menyentuh seorang gadis yang menemukan surat-surat lama ayahnya dan perlahan memahami pengorbanan yang selama ini tersembunyi.',
+   content:[
+    'Peti kayu tua itu tersembunyi di sudut gudang, tertutup debu bertahun-tahun. Nisa tidak pernah membukanya — sampai hari itu. Jarinya menyentuh engsel berkarat dan peti itu terbuka.',
+    'Di dalamnya: tumpukan amplop kuning diikat tali rami. Di sudut kiri atas setiap amplop: "Dari: Fajar Kusuma." Ayahnya. Yang telah pergi sepuluh tahun lalu.',
+    '"Untuk Anakku Tersayang," demikian pembukaan surat pertama. "Hari ini kamu baru berumur tiga tahun dan kamu tertawa saat aku gelitik perutmu. Suara tawamu adalah hal paling indah yang pernah aku dengar."',
+    'Nisa membaca satu per satu hingga matahari tenggelam. Ada surat saat ia sakit demam. Ada surat hanya dua kalimat: "Maafkan Ayah yang tidak selalu ada. Kamu lebih kuat dari yang kamu tahu."',
+    'Surat terakhir: "Kalau kamu membaca ini, berarti aku sudah pergi. Tapi ingat: cinta tidak perlu kehadiran fisik untuk nyata. Setiap kali angin berhembus, itu aku." Nisa menangis — bukan karena kehilangan, tapi karena merasa ditemukan.',
+   ]},
+  {id:10,sec:'cerita',sub:'novel',title:'Laskar Pelangi',author:'Andrea Hirata',icon:'🌈',bg:'#ede9fe',yr:'2005',pg:'529 hlm',lvl:'Umum',
+   desc:'Novel legendaris tentang sepuluh anak Belitung yang berjuang mengejar mimpi dengan segala keterbatasan, dibalut persahabatan yang tak lekang waktu.',
+   content:[
+    'Ikal ingat betul hari pertama masuk SD Muhammadiyah Belitung. Gedung sekolah miring, atap bocor, bangku hampir rubuh. Bu Mus berdiri gagah di depan kelas lapuk, matanya bersinar — mimpi tidak mengenal miskin atau kaya.',
+    'Ada sepuluh anak: Ikal si pemimpi, Lintang si jenius anak nelayan, Mahar si seniman eksentrik, dan tujuh lainnya — bersama membentuk Laskar Pelangi.',
+    'Lintang adalah keajaiban. Ia bersepeda 40 kilometer setiap hari untuk sekolah, melewati jalan berlumpur, bahkan menghadapi buaya di tengah jalan. Otaknya memecahkan soal matematika yang membuat guru pun terkagum.',
+    '"Aku bermimpi pergi ke Paris suatu hari nanti," kata Ikal kepada Lintang. "Aku juga. Dan kita akan ke sana bersama." Mereka tidak tahu takdir akan memisahkan langkah mereka lebih awal.',
+    'Laskar Pelangi adalah tentang semangat yang tidak padam digempur kemiskinan. Tentang guru berdedikasi meski gajinya tak seberapa. Tentang persahabatan yang menjadi kompas di tengah badai kehidupan.',
+   ]},
+  {id:11,sec:'cerita',sub:'novel',title:'Bumi Manusia',author:'Pramoedya Ananta Toer',icon:'🌍',bg:'#fce7f3',yr:'1980',pg:'535 hlm',lvl:'Dewasa',
+   desc:'Kisah cinta Minke dan Annelies di tengah kolonialisme Belanda. Mahakarya sastra yang mengangkat martabat manusia.',
+   content:[
+    'Aku, Minke, adalah murid terbaik H.B.S. di Surabaya — satu-satunya pribumi di antara murid-murid Eropa. Guruku memuji tulisanku. Tapi di luar sekolah, aku tetap hanya seorang pribumi.',
+    'Hari itu aku bertemu Annelies Mellema. Ia setengah Eropa, setengah Jawa — seperti dua dunia yang bertemu dalam satu jiwa yang rapuh.',
+    '"Kamu tidak takut padaku?" tanyaku heran. "Mengapa harus takut?" jawabnya dengan Melayu yang indah. "Kita sama-sama manusia." Kata-kata itu menampar dunia penuh kepalsuan di sekitarku.',
+    'Cinta kami tumbuh di tanah gersang. Hukum kolonial mendeportasi Annelies ke Belanda setelah ayahnya meninggal. Aku berdiri di dermaga, menyaksikan kapal membawa satu-satunya kebenaranku berlayar menjauh.',
+    'Bumi Manusia adalah teriakan Pramoedya tentang martabat yang diinjak-injak dan cinta yang dihancurkan sistem. Tapi juga tentang harapan — bahwa suatu hari, keadilan akan berdiri di atas bumi manusia ini.',
+   ]},
+  {id:12,sec:'cerita',sub:'novel',title:'Negeri 5 Menara',author:'Ahmad Fuadi',icon:'🕌',bg:'#fef9c3',yr:'2009',pg:'423 hlm',lvl:'Remaja–Dewasa',
+   desc:'Alif Fikri merantau ke pesantren Gontor dan menemukan kalimat sakti yang mengubah hidupnya: Man jadda wajada.',
+   content:[
+    'Pondok Madani. Dunia baru yang asing. Alif Fikri meninggalkan Maninjau dengan hati berat. Ia ingin masuk SMA negeri, bukan pesantren.',
+    'Namun amak punya keyakinan berbeda. "Di sini kamu belajar ilmu dunia sekaligus ilmu akhirat." Dan Alif pun tiba di Pondok Madani dengan satu koper dan setumpuk ragu.',
+    'Kiai Rais berdiri di hadapan santri baru. "Kalian datang dari berbagai penjuru negeri. Kalian yang terpilih. Dan pesan saya hanya satu:" Beliau berhenti. "Man jadda wajada."',
+    '"Siapa yang bersungguh-sungguh, pasti berhasil." Tiga kata Arab itu menghujam dada Alif seperti kilat. Ratusan mata berbinar di sekelilingnya, semua seolah telah menemukan pegangan hidup.',
+    'Bertahun-tahun kemudian, Alif berdiri di depan gedung PBB di New York memegang paspor Indonesia dengan bangga. Man jadda wajada. Ia telah membuktikannya.',
+   ]},
+  {id:21,sec:'cerita',sub:'novel',title:'Dilan 1990',author:'Pidi Baiq',icon:'🏍️',bg:'#fee2e2',yr:'2015',pg:'340 hlm',lvl:'Remaja',
+   desc:'Kisah cinta sederhana di Bandung 1990 antara Milea dan Dilan yang penuh kelembutan, humor, dan kehangatan.',
+   content:[
+    'Bandung, 1990. Milea Adnan baru pindah dari Jakarta. Dunia barunya terasa asing. Hingga seorang anak laki-laki naik motor berhenti di depannya dan berkata santai: "Perkenalkan, namaku Dilan."',
+    '"Kamu cantik," lanjutnya. "Tapi itu bukan salahmu." Milea terdiam sebentar, lalu tertawa tanpa bisa ditahan. Siapa anak ini?',
+    'Dilan tidak seperti laki-laki lain. Ia tidak memberi bunga. Ia memberi teka-teki di kertas. "Rindu itu berat, Milea. Kamu tidak akan kuat. Biar aku saja." Milea tidak tahu harus marah atau tersenyum.',
+    'Hubungan mereka tumbuh perlahan seperti musim hujan di Bandung — pelan, basah, dan hangat. Dilan hadir dengan cara tak terduga: menunggu di depan kelas, membawakan kue ulang tahun dari warteg terdekat.',
+    'Tahun 1990 berlalu. Tapi bagi Milea, ada hal-hal yang tak pernah benar-benar pergi — suara motor yang selalu berhenti tepat di depannya, dan cara seorang anak bernama Dilan menjadikan hari biasa terasa seperti puisi.',
+   ]},
+  {id:22,sec:'cerita',sub:'novel',title:'Pulang',author:'Tere Liye',icon:'🌙',bg:'#f0fdf4',yr:'2015',pg:'400 hlm',lvl:'Dewasa',
+   desc:'Perjalanan Bujang menjadi kepala keluarga penjahat terbesar Asia. Kisah gelap tentang dendam, kesetiaan, dan makna pulang.',
+   content:[
+    'Namanya Bujang. Dari pedalaman Sumatera, anak petani miskin yang tidak tahu bedanya pistol dengan pipa air. Tapi di sinilah kisah itu dimulai — bukan dengan kejayaan, melainkan dengan kepedihan.',
+    'Tauke Besar datang ke kampungnya, menawarkan pendidikan terbaik untuk Bujang asal ia mau dibawa ke kota. Bujang berpisah dengan ibunya di bawah pohon durian — ia tidak tahu itu perpisahan terakhir.',
+    'Di kota, Bujang belajar bertahan hidup di dunia keras. Tauke mengajarinya bisnis. Para penjaga mengajarinya bela diri. Jalanan mengajarinya: tidak semua yang terlihat jahat itu jahat.',
+    '"Kamu mau jadi apa?" tanya Tauke. "Tidak tahu," jawab Bujang jujur. "Bagus," kata Tauke. "Orang yang tidak tahu lebih mudah diarahkan daripada orang yang terlalu yakin."',
+    'Bertahun-tahun kemudian Bujang berdiri di puncak kerajaan bisnis hitam yang menggurita. Tapi di tengah malam yang sunyi, ia selalu teringat satu hal: wajah ibunya melambaikan tangan di bawah pohon durian, dan pertanyaan yang belum terjawab — apakah ia sudah benar-benar pulang?',
+   ]},
+];
+
+const QUOTES=[
+  {text:'Pendidikan adalah senjata paling ampuh yang bisa kamu gunakan untuk mengubah dunia.',author:'Nelson Mandela'},
+  {text:'Ilmu tanpa agama adalah lumpuh, agama tanpa ilmu adalah buta.',author:'Albert Einstein'},
+  {text:'Buku adalah jendela dunia. Membaca adalah cara membukanya.',author:'Jendela Literasi'},
+  {text:'Orang yang membaca hidup seribu kehidupan. Orang yang tidak membaca hanya hidup satu kali.',author:'George R.R. Martin'},
+  {text:'Investasi terbaik yang bisa kamu lakukan adalah investasi pada dirimu sendiri.',author:'Warren Buffett'},
+  {text:'Jangan pernah berhenti belajar, karena hidup tidak pernah berhenti mengajar.',author:'Bijak Bestari'},
+  {text:'Sebuah kamar tanpa buku seperti tubuh tanpa jiwa.',author:'Marcus Tullius Cicero'},
+  {text:'Kesuksesan bukan soal seberapa banyak uang yang kamu hasilkan, tapi seberapa besar perbedaan yang kamu buat.',author:'Michelle Obama'},
+  {text:'Bermimpilah setinggi langit. Jika kamu jatuh, kamu akan jatuh di antara bintang-bintang.',author:'Soekarno'},
+  {text:'Man jadda wajada — siapa yang bersungguh-sungguh, pasti berhasil.',author:'Pepatah Arab'},
+  {text:'Setiap buku adalah petualangan baru yang menunggu untuk dijelajahi.',author:'E. B. White'},
+  {text:'Membaca memberimu tempat untuk pergi ketika kamu harus diam di tempat.',author:'Mason Cooley'},
+];
+
+const favs = new Set();
+let curBook = null;
+let rFz = 18;
+let rTheme = 'light';
+
+/* ─── COUNTER ─────────────────────────── */
+function countUp(id, n) {
+  const el = document.getElementById(id);
+  let v = 0;
+  const t = setInterval(() => {
+    v = Math.min(v + Math.ceil(n / 40), n);
+    el.textContent = v;
+    if (v >= n) clearInterval(t);
+  }, 25);
+}
+
+/* ─── LABEL HELPERS ───────────────────── */
+function labelColor(b) {
+  return b.sec === 'pelajaran' ? '#1a56db' : '#dc2626';
+}
+function labelName(b) {
+  return { sejarah:'Sejarah', matematika:'Matematika', sains:'Sains',
+           cerita:'Cerita Pendek', novel:'Novel', dongeng:'Dongeng' }[b.sub] || b.sub;
+}
+
+/* ─── RENDER BOOK CARD ────────────────── */
+function bookHTML(b) {
+  const isFav = favs.has(b.id);
+  return `<div class="book-card" data-id="${b.id}">
+    <div class="book-cover" style="background:${b.bg}">${b.icon}</div>
+    <div class="book-meta">
+      <div class="book-label" style="color:${labelColor(b)}">${labelName(b)}</div>
+      <div class="book-title">${b.title}</div>
+      <div class="book-author">${b.author}</div>
+    </div>
+    <div class="book-foot">
+      <button class="btn-xs pri" data-action="read" data-id="${b.id}">📖 Baca</button>
+      <button class="btn-xs sec" data-action="detail" data-id="${b.id}">${isFav ? '❤️' : '🔖'} Detail</button>
+    </div>
+  </div>`;
+}
+
+/* ─── RENDER GRIDS ────────────────────── */
+function renderGrid(gridId, sec, sub) {
+  const list = BOOKS.filter(b => b.sec === sec && (sub === 'semua' || b.sub === sub));
+  document.getElementById(gridId).innerHTML = list.map(b => bookHTML(b)).join('');
+}
+function renderQuotes() {
+  document.getElementById('qgrid').innerHTML = QUOTES.map((q, i) => `
+    <div class="quote-card">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">${q.text}</p>
+      <div class="quote-by">— ${q.author}</div>
+      <button class="quote-copy" data-qi="${i}">📋 Salin</button>
+    </div>`).join('');
+}
+
+/* ─── DELEGATED CLICK HANDLERS ───────── */
+document.addEventListener('click', function(e) {
+  // Book card clicks
+  const readBtn = e.target.closest('[data-action="read"]');
+  const detailBtn = e.target.closest('[data-action="detail"]');
+  const card = e.target.closest('.book-card');
+  const copyBtn = e.target.closest('.quote-copy');
+
+  if (readBtn) {
+    e.stopPropagation();
+    sfx('open');
+    openReader(parseInt(readBtn.dataset.id));
+    return;
+  }
+  if (detailBtn) {
+    e.stopPropagation();
+    sfx('click');
+    openModal(parseInt(detailBtn.dataset.id));
+    return;
+  }
+  if (card && !readBtn && !detailBtn) {
+    sfx('click');
+    openModal(parseInt(card.dataset.id));
+    return;
+  }
+  if (copyBtn) {
+    const qi = parseInt(copyBtn.dataset.qi);
+    const q = QUOTES[qi];
+    sfx('copy');
+    copyQ(q.text + ' — ' + q.author);
+    return;
+  }
+});
+
+/* ─── PILL FILTER (event delegation) ─── */
+document.getElementById('pill-pelajaran').addEventListener('click', function(e) {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  this.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+  pill.classList.add('on');
+  renderGrid('grid-pelajaran', 'pelajaran', pill.dataset.sub);
+  sfx('click');
+});
+
+document.getElementById('pill-cerita').addEventListener('click', function(e) {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  this.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+  pill.classList.add('on');
+  renderGrid('grid-cerita', 'cerita', pill.dataset.sub);
+  sfx('click');
+});
+
+/* ─── SEARCH ──────────────────────────── */
+function doSearch(val) {
+  const q = val.trim().toLowerCase();
+  const sr = document.getElementById('search-results');
+  if (!q) { sr.classList.remove('on'); return; }
+  sfx('search');
+  const res = BOOKS.filter(b =>
+    b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) ||
+    b.sub.includes(q) || b.desc.toLowerCase().includes(q));
+  document.getElementById('rmeta').textContent = `${res.length} buku ditemukan untuk "${val}"`;
+  document.getElementById('rgrid').innerHTML = res.length
+    ? res.map(b => bookHTML(b)).join('')
+    : `<p style="color:var(--muted);grid-column:1/-1;padding:2rem 0">Tidak ada buku yang cocok. Coba kata kunci lain.</p>`;
+  sr.classList.add('on');
+  sr.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ─── MODAL ───────────────────────────── */
+function openModal(id) {
+  const b = BOOKS.find(x => x.id === id);
+  if (!b) return;
+  curBook = b;
+  document.getElementById('mT').textContent = b.title;
+  document.getElementById('mA').textContent = '✍️ ' + b.author;
+  document.getElementById('mC').innerHTML =
+    `<span class="chip">📅 ${b.yr}</span><span class="chip">📄 ${b.pg}</span><span class="chip">🎓 ${b.lvl}</span>`;
+  document.getElementById('mD').textContent = b.desc;
+  document.getElementById('mE').innerHTML = `<span class="lbl">Cuplikan Pertama</span>${b.content[0]}`;
+  const on = favs.has(b.id);
+  const fb = document.getElementById('mFavBtn');
+  fb.textContent = on ? '❤️ Tersimpan' : '🤍 Simpan';
+  fb.className = 'btn-m fav' + (on ? ' faved' : '');
+  document.getElementById('mOverlay').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  sfx('open');
+}
+function closeModal() {
+  document.getElementById('mOverlay').classList.remove('on');
+  document.body.style.overflow = '';
+  sfx('close');
+}
+function toggleFav() {
+  if (!curBook) return;
+  if (favs.has(curBook.id)) {
+    favs.delete(curBook.id);
+    sfx('close');
+    toast('Dihapus dari simpanan');
+  } else {
+    favs.add(curBook.id);
+    sfx('fav');
+    toast('❤️ Berhasil disimpan!');
+  }
+  const on = favs.has(curBook.id);
+  const fb = document.getElementById('mFavBtn');
+  fb.textContent = on ? '❤️ Tersimpan' : '🤍 Simpan';
+  fb.className = 'btn-m fav' + (on ? ' faved' : '');
+  renderGrid('grid-pelajaran', 'pelajaran', 'semua');
+  renderGrid('grid-cerita', 'cerita', 'semua');
+}
+
+/* ─── READER ──────────────────────────── */
+function openReader(id) {
+  const b = BOOKS.find(x => x.id === id);
+  if (!b) return;
+  curBook = b;
+  document.getElementById('rtitle').textContent = b.title;
+  const rb = document.getElementById('rbody');
+  rb.style.fontSize = rFz + 'px';
+  rb.innerHTML = `<h2>${b.title}</h2>
+    <div class="meta">✍️ ${b.author} &nbsp;·&nbsp; ${b.pg} &nbsp;·&nbsp; ${b.yr}</div>
+    ${b.content.map(p => `<p>${p}</p>`).join('')}
+    <div class="reader-end">
+      ✨ Selesai membaca <strong>${b.title}</strong><br>
+      <button class="rbtn" id="btn-reader-back" style="margin-top:1rem">← Kembali ke Perpustakaan</button>
+    </div>`;
+  document.getElementById('btn-reader-back').addEventListener('click', () => { sfx('close'); closeReader(); });
+  const rw = document.getElementById('reader-wrap');
+  rw.className = 'on r-' + rTheme;
+  rw.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  updateProg();
+  sfx('open');
+}
+function closeReader() {
+  document.getElementById('reader-wrap').className = '';
+  document.body.style.overflow = '';
+  toast('Sampai jumpa lagi! 📚');
+  sfx('close');
+}
+function setFz(d) {
+  rFz = Math.max(13, Math.min(26, rFz + d));
+  document.getElementById('rbody').style.fontSize = rFz + 'px';
+  toast('Ukuran teks: ' + rFz + 'px');
+  sfx('click');
+}
+function setTheme(t) {
+  rTheme = t;
+  const rw = document.getElementById('reader-wrap');
+  rw.className = 'on r-' + t;
+  ['light', 'sepia', 'dark'].forEach(x => {
+    const b = document.getElementById('rb-' + x);
+    if (b) b.className = 'rbtn' + (t === x ? ' on' : '');
+  });
+  toast(t === 'dark' ? 'Mode gelap 🌙' : t === 'sepia' ? 'Mode sepia 🌿' : 'Mode terang ☀️');
+  sfx('click');
+}
+
+/* ─── PROGRESS BAR ────────────────────── */
+function updateProg() {
+  const rw = document.getElementById('reader-wrap');
+  const max = rw.scrollHeight - rw.clientHeight;
+  document.getElementById('prog').style.width = (max > 0 ? (rw.scrollTop / max) * 100 : 0) + '%';
+}
+
+/* ─── COPY QUOTE ──────────────────────── */
+function copyQ(text) {
+  navigator.clipboard?.writeText(text)
+    .then(() => toast('📋 Kutipan disalin!'))
+    .catch(() => toast('Salin manual ya 😊'));
+}
+
+/* ─── KEYBOARD ────────────────────────── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('reader-wrap').classList.contains('on')) closeReader();
+    else if (document.getElementById('mOverlay').classList.contains('on')) closeModal();
+  }
+});
+
+/* ─── BUTTON WIRING ───────────────────── */
+document.getElementById('mReadBtn').addEventListener('click', () => {
+  sfx('open'); closeModal(); openReader(curBook.id);
+});
+document.getElementById('mFavBtn').addEventListener('click', toggleFav);
+document.getElementById('btnCloseModal').addEventListener('click', closeModal);
+document.getElementById('btnModalClose2').addEventListener('click', closeModal);
+document.getElementById('mOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.getElementById('btn-fz-minus').addEventListener('click', () => setFz(-1));
+document.getElementById('btn-fz-plus').addEventListener('click', () => setFz(1));
+document.getElementById('rb-light').addEventListener('click', () => setTheme('light'));
+document.getElementById('rb-sepia').addEventListener('click', () => setTheme('sepia'));
+document.getElementById('rb-dark').addEventListener('click', () => setTheme('dark'));
+document.getElementById('btn-close-reader').addEventListener('click', () => { sfx('close'); closeReader(); });
+document.getElementById('reader-wrap').addEventListener('scroll', updateProg);
+
+/* ─── SCROLL FADE (section headers only) */
+const obs = new IntersectionObserver(en => {
+  en.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-sec').forEach(el => obs.observe(el));
+
+/* ─── INIT ────────────────────────────── */
+countUp('s1', BOOKS.length);
+countUp('s2', BOOKS.filter(b => b.sec === 'pelajaran').length);
+countUp('s3', BOOKS.filter(b => b.sec === 'cerita').length);
+countUp('s4', QUOTES.length);
+
+renderGrid('grid-pelajaran', 'pelajaran', 'semua');
+renderGrid('grid-cerita', 'cerita', 'semua');
+renderQuotes();
+</script>
+</body>
+</html>
