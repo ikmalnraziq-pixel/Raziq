@@ -1,0 +1,95 @@
+{
+  "id": "/Raziq/",
+  "name": "Pelajarin.ai – Belajar Lebih Cepat dengan AI",
+  "short_name": "Pelajarin.ai",
+  "description": "Belajar lebih cepat dengan AI – ringkasan, kuis, flashcard, peta konsep, dan chat AI dalam satu aplikasi.",
+  "start_url": "/Raziq/",
+  "scope": "/Raziq/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#fafafa",
+  "theme_color": "#f76703",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-mobile-1.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Halaman utama Pelajarin.ai"
+    },
+    {
+      "src": "screenshots/screenshot-mobile-2.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Fitur Ringkasan AI"
+    },
+    {
+      "src": "screenshots/screenshot-desktop-1.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tampilan desktop Pelajarin.ai"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ringkasan",
+      "short_name": "Ringkasan",
+      "description": "Buat ringkasan otomatis dari materi belajar",
+      "url": "/Raziq/?shortcut=ringkasan",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kuis",
+      "short_name": "Kuis",
+      "description": "Latihan soal kuis dari materi",
+      "url": "/Raziq/?shortcut=kuis",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Flashcard",
+      "short_name": "Flashcard",
+      "description": "Hafal materi dengan flashcard interaktif",
+      "url": "/Raziq/?shortcut=flashcard",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Chat AI",
+      "short_name": "Chat AI",
+      "description": "Tanya apapun ke AI tutor",
+      "url": "/Raziq/?shortcut=chat",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
