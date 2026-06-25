@@ -22,7 +22,6 @@
     "productivity"
   ],
   "prefer_related_applications": false,
-  "iarc_rating_id": "",
   "icons": [
     {
       "src": "icons/icon-72.png",
@@ -89,18 +88,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "icons/icon-192.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.webp",
-      "sizes": "512x512",
-      "type": "image/webp",
-      "purpose": "any"
     }
   ],
   "screenshots": [
@@ -231,12 +218,8 @@
     {
       "action": "/Raziq/open-file/",
       "accept": {
-        "application/pdf": [
-          ".pdf"
-        ],
-        "text/plain": [
-          ".txt"
-        ]
+        "application/pdf": [".pdf"],
+        "text/plain": [".txt"]
       }
     }
   ],
@@ -251,27 +234,5 @@
     ]
   },
   "related_applications": [],
-  "scope_extensions": [
-    {
-      "origin": "https://pelajarin.ai"
-    }
-  ],
-  "capture_links": "existing-client-navigate",
-  "serviceworker": {
-    "src": "/Raziq/sw.js",
-    "scope": "/Raziq/",
-    "update_via_cache": "none",
-    "use_cache": true
-  },
-  "permissions_policy": {
-    "autoplay": [],
-    "camera": [],
-    "display-capture": [],
-    "fullscreen": [
-      "self"
-    ],
-    "geolocation": [],
-    "microphone": [],
-    "payment": []
-  }
+  "capture_links": "existing-client-navigate"
 }
